@@ -13,7 +13,7 @@ import Product from "../../components/Product";
 import { useStateContext } from "../../context/StateContext";
 const ProductDetails = ({ products, product }) => {
   const router = useRouter();
-  const { decQty, incQty, qty } = useStateContext();
+  const { decQty, incQty, qty, onAdd } = useStateContext();
 
   if (!product) {
     setTimeout(() => {
@@ -81,7 +81,11 @@ const ProductDetails = ({ products, product }) => {
             </p>
           </div>
           <div className="buttons">
-            <button type="button" className="add-to-cart" onClick={null}>
+            <button
+              type="button"
+              className="add-to-cart"
+              onClick={() => onAdd(product, qty)}
+            >
               Add to cart
             </button>
             <button type="button" className="buy-now" onClick={null}>
