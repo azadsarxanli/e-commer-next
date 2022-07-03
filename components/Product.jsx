@@ -3,7 +3,6 @@ import Link from "next/link";
 import { urlFor } from "../lib/client";
 
 const Product = ({ product: { image, title, slug, price } }) => {
-  console.log("hello fariz");
   return (
     <div>
       <Link href={`/product/${slug.current}`}>

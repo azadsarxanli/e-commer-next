@@ -33,6 +33,7 @@ export const StateContext = ({ children }) => {
         setTotalQuantity,
         incQty,
         decQty,
+        qty,
       }}
     >
       {children}

@@ -12,9 +12,9 @@ import { client, urlFor } from "../../lib/client";
 import Product from "../../components/Product";
 import { useStateContext } from "../../context/StateContext";
 const ProductDetails = ({ products, product }) => {
-  console.log(products);
   const router = useRouter();
-  const { decQty, incQty } = useStateContext();
+  const { decQty, incQty, qty } = useStateContext();
+
   if (!product) {
     setTimeout(() => {
       router.push("/");
@@ -71,11 +71,11 @@ const ProductDetails = ({ products, product }) => {
           <div className="quantity">
             <h3>Quantity</h3>
             <p className="quantity-desc">
-              <span className="minus" onClick={null}>
+              <span className="minus" onClick={decQty}>
                 <AiOutlineMinus />
               </span>
-              <span className="num">0</span>
-              <span className="plus" onClick={null}>
+              <span className="num">{qty}</span>
+              <span className="plus" onClick={incQty}>
                 <AiOutlinePlus />
               </span>
             </p>
